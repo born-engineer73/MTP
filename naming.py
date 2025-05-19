@@ -1,11 +1,12 @@
 import os
 
 # ==== CONFIGURATION ====
-FOLDER_PATH = 'D:/Vaibhav Hacker/Desktop/MTP/Dataset/testing2/features_combined'   # Can be video or label folder
-FILE_TYPE = '.npy'   # Use '.txt' for labels, '.mp4' / '.avi' / '.mov' for videos
-START_NUM = 1
-END_NUM =18
-OFFSET = 1560 # e.g., 1 -> 101, 2 -> 102
+FOLDER_PATH = r'D:\Vaibhav Hacker\Desktop\MTP\Final_MSTCN_repo\data\Training_dataset_3_task\temp'   # Can be video or label folder
+# FOLDER_PATH = 'D:/Vaibhav Hacker/Desktop/MTP/Final_MSTCN_repo/data/Training_dataset/testing_ground'   # Can be video or label folder
+FILE_TYPE = '.txt'   # Use '.txt' for labels, '.mp4' / '.avi' / '.mov' for videos
+START_NUM = 2401
+END_NUM = 2520
+OFFSET = 1440-START_NUM+1 # e.g., 1 -> 101, 2 -> 102
 # ========================
 
 # Get all matching files

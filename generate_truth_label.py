@@ -2,8 +2,8 @@ import os
 from collections import Counter
 
 # Paths
-LABEL_DIR = "truth/pick_give"   # Folder with original ground truth files
-TRUTH_DIR = "Dataset/pick_give/ground_truth/"   # Folder to save downsampled label files
+LABEL_DIR = "D:/Vaibhav Hacker/Desktop/MTP/Dataset/Reach/temp"   # Folder with original ground truth files
+TRUTH_DIR = "D:/Vaibhav Hacker/Desktop/MTP/Dataset/Reach/ground_truth"   # Folder to save downsampled label files
 os.makedirs(TRUTH_DIR, exist_ok=True)
 
 # Process each label file

@@ -62,5 +62,5 @@ def apply_augmentations_to_all_videos(video_dir):
     print(f"\n✅ All augmentations done. Total videos now: {count - 1}")
 
 # Example usage:
-video_dir = 'D:/Vaibhav Hacker/Desktop/MTP/videos/pick_pour'
+video_dir = 'D:/Vaibhav Hacker/Desktop/MTP/videos/Withdraw'
 apply_augmentations_to_all_videos(video_dir)

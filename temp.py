@@ -128,24 +128,65 @@
 
 
 
+# import os
+
+# # Path where your .npy files are stored
+# folder_path = 'D:/Vaibhav Hacker/Desktop/MTP/Dataset/pick_give/features_combined'  # Change this if needed, e.g., './data/'
+
+# # Expected file names: 1.npy to 520.npy
+# expected_files = {f"{i}.npy" for i in range(1, 521)}
+
+# # Actual files in the directory
+# actual_files = set(f for f in os.listdir(folder_path) if f.endswith('.npy'))
+
+# # Find missing files
+# missing_files = sorted(expected_files - actual_files)
+
+# # Print missing files
+# if missing_files:
+#     print("Missing files:")
+#     for file in missing_files:
+#         print(file)
+# else:
+#     print("No files are missing.")
+
+# import numpy as np
+
+# # Load the .npy file
+# data = np.load('D:/Vaibhav Hacker/Desktop/MTP/rgb_features/test.npy')
+
+# # Print the shape
+# print("Shape:", data.shape)
+
+# # (Optional) Print the number of dimensions
+# print("Number of dimensions:", data.ndim)
+
 import os
+import shutil
+import numpy as np
 
-# Path where your .npy files are stored
-folder_path = 'D:/Vaibhav Hacker/Desktop/MTP/Dataset/pick_give/features_combined'  # Change this if needed, e.g., './data/'
+# === Step 1: Define all folders and .npy file paths ===
+FOLDERS = ['D:/Vaibhav Hacker/Desktop/MTP/rgb_features', 'D:/Vaibhav Hacker/Desktop/MTP/flow_features', 'D:/Vaibhav Hacker/Desktop/MTP/combined_features']
 
-# Expected file names: 1.npy to 520.npy
-expected_files = {f"{i}.npy" for i in range(1, 521)}
+# Store npy file paths
+npy_file_paths = {}
+for folder in FOLDERS:
+    npy_file_paths[folder] = os.path.join(folder, 'test.npy')
 
-# Actual files in the directory
-actual_files = set(f for f in os.listdir(folder_path) if f.endswith('.npy'))
+# === Step 2: Clean all folders ===
+for folder in FOLDERS:
+    if os.path.exists(folder):
+        print("Emptying")
+        shutil.rmtree(folder)  # Delete folder if exists
+    os.makedirs(folder)         # Recreate fresh folder
+    print(f"Directory prepared: {folder}")
 
-# Find missing files
-missing_files = sorted(expected_files - actual_files)
+# === Step 3: Create and save .npy files ===
+# Dummy features array (you can change this per folder if needed)
+features = np.random.rand(10, 224, 224, 3)
 
-# Print missing files
-if missing_files:
-    print("Missing files:")
-    for file in missing_files:
-        print(file)
-else:
-    print("No files are missing.")
+print(npy_file_paths['D:/Vaibhav Hacker/Desktop/MTP/rgb_features'])
+for folder, npy_path in npy_file_paths.items():
+    
+    np.save(npy_path, features)
+    print(f"Saved .npy file at: {npy_path}")
